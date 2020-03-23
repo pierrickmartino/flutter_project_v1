@@ -1,6 +1,10 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+//import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+//import 'package:flutter/widgets.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:test_pierrick_v2/services/authentication.dart';
+import 'package:test_pierrick_v2/pages/root_page.dart';
+
 // import 'package:flutter_login/data/models/auth.dart';
 // import 'package:persist_theme/persist_theme.dart';
 // import 'package:provider/provider.dart';
@@ -15,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Test Pierrick',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -30,11 +35,14 @@ class MyApp extends StatelessWidget {
         // accentColor: Colors.cyan[600],
         // primaryColor: Colors.cyan[900],
       ),
-      home: MyHomePage(title: 'Test Pierrick Home Page'),
+      home: new RootPage(auth: new Auth())
+      //home: MyHomePage(title: 'Test Pierrick Home Page'),
     );
   }
 }
 
+// useless now
+/*
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -245,3 +253,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
