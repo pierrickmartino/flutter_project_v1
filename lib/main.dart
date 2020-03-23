@@ -1,6 +1,9 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+// import 'package:flutter_login/data/models/auth.dart';
+// import 'package:persist_theme/persist_theme.dart';
+// import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,11 +25,10 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        
+
         primarySwatch: Colors.blueGrey,
         // accentColor: Colors.cyan[600],
         // primaryColor: Colors.cyan[900],
-
       ),
       home: MyHomePage(title: 'Test Pierrick Home Page'),
     );
@@ -52,30 +54,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
-  int _counter = 0; // counter for click on the add button
-  int _currentIndex = 0;  // selected menu index V2
-  PageController _pageController;
+  TextStyle style = TextStyle(fontSize: 16.0);
 
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-  Text(
-    'Index 0: Home',
-    style: optionStyle,
-  ),
-  Text(
-     'Index 1: Business',
-     style: optionStyle,
-  ),
-  Text(
-     'Index 2: School',
-     style: optionStyle,
-  ),
-  Text(
-     'Index 3: About',
-     style: optionStyle,
-  ),
-];
+  int _counter = 0; // counter for click on the add button
+  int _currentIndex = 0; // selected menu index V2
+  PageController _pageController;
 
   void _incrementCounter() {
     setState(() {
@@ -110,13 +93,83 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
+    // PENDING PROJECT
+    /*
+    final emailField = TextField(
+      obscureText: false,
+      style: style,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          hintText: "Email",
+          border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+    );
+    final passwordField = TextField(
+      obscureText: true,
+      style: style,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          hintText: "Password",
+          border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+    );
+    final loginButon = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(30.0),
+      color: Color(0xff01A0C7),
+      child: MaterialButton(
+        minWidth: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        onPressed: () {},
+        child: Text("Login",
+            textAlign: TextAlign.center,
+            style: style.copyWith(
+                color: Colors.white, fontWeight: FontWeight.bold)),
+      ),
+    );
+
     return Scaffold(
+      body: Center(
+            child: Container(
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(36.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 155.0,
+                      child: Image.asset(
+                        "assets/logo.png",
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    SizedBox(height: 45.0),
+                    emailField,
+                    SizedBox(height: 25.0),
+                    passwordField,
+                    SizedBox(
+                      height: 35.0,
+                    ),
+                    loginButon,
+                    SizedBox(
+                      height: 15.0,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+      */
+    return Scaffold(  
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-    
+
       body: SizedBox.expand(
         child: PageView(
           controller: _pageController,
@@ -124,40 +177,44 @@ class _MyHomePageState extends State<MyHomePage> {
             setState(() => _currentIndex = index);
           },
           children: <Widget>[
-            Container(color: Colors.blueGrey[200],
-              child: Column(
-                // Column is also a layout widget. It takes a list of children and
-                // arranges them vertically. By default, it sizes itself to fit its
-                // children horizontally, and tries to be as tall as its parent.
-                //
-                // Invoke "debug painting" (press "p" in the console, choose the
-                // "Toggle Debug Paint" action from the Flutter Inspector in Android
-                // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-                // to see the wireframe for each widget.
-                //
-                // Column has various properties to control how it sizes itself and
-                // how it positions its children. Here we use mainAxisAlignment to
-                // center the children vertically; the main axis here is the vertical
-                // axis because Columns are vertical (the cross axis would be
-                // horizontal).
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'You have pushed the button this many times:',
-                    style: TextStyle(
-                      color: Colors.grey[800],
-                    )
-                  ),
-                  Text(
-                    '$_counter',
-                    style: Theme.of(context).textTheme.headline4,
-                  ),
-                ],
-              )
+            Container(
+                color: Colors.blueGrey[200],
+                child: Column(
+                  // Column is also a layout widget. It takes a list of children and
+                  // arranges them vertically. By default, it sizes itself to fit its
+                  // children horizontally, and tries to be as tall as its parent.
+                  //
+                  // Invoke "debug painting" (press "p" in the console, choose the
+                  // "Toggle Debug Paint" action from the Flutter Inspector in Android
+                  // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+                  // to see the wireframe for each widget.
+                  //
+                  // Column has various properties to control how it sizes itself and
+                  // how it positions its children. Here we use mainAxisAlignment to
+                  // center the children vertically; the main axis here is the vertical
+                  // axis because Columns are vertical (the cross axis would be
+                  // horizontal).
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('You have pushed the button this many times:',
+                        style: TextStyle(
+                          color: Colors.grey[800],
+                        )),
+                    Text(
+                      '$_counter',
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                  ],
+                )),
+            Container(
+              color: Colors.red,
             ),
-            Container(color: Colors.red,),
-            Container(color: Colors.green,),
-            Container(color: Colors.blue,),
+            Container(
+              color: Colors.green,
+            ),
+            Container(
+              color: Colors.blue,
+            ),
           ],
         ),
       ),
@@ -168,33 +225,23 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
 
-    bottomNavigationBar: BottomNavyBar(
-      
+      bottomNavigationBar: BottomNavyBar(
         selectedIndex: _currentIndex,
         onItemSelected: (index) {
           setState(() => _currentIndex = index);
           _pageController.jumpToPage(index);
         },
         items: <BottomNavyBarItem>[
+          BottomNavyBarItem(title: Text('Overview'), icon: Icon(Icons.home)),
           BottomNavyBarItem(
-            title: Text('Overview'),
-            icon: Icon(Icons.home)
-          ),
+              title: Text('Portfolio'),
+              icon: Icon(Icons.account_balance_wallet)),
           BottomNavyBarItem(
-            title: Text('Portfolio'),
-            icon: Icon(Icons.account_balance_wallet)
-          ),
+              title: Text('Analysis'), icon: Icon(Icons.insert_chart)),
           BottomNavyBarItem(
-            title: Text('Analysis'),
-            icon: Icon(Icons.insert_chart)
-          ),
-          BottomNavyBarItem(
-            title: Text('Settings'),
-            icon: Icon(Icons.settings)
-          ),
+              title: Text('Settings'), icon: Icon(Icons.settings)),
         ],
       ),
-
     );
   }
 }
