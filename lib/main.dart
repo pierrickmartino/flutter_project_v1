@@ -2,8 +2,10 @@
 //import 'package:flutter/widgets.dart';
 
 import 'package:flutter/material.dart';
-import 'package:test_pierrick_v2/services/authentication.dart';
-import 'package:test_pierrick_v2/pages/root_page.dart';
+import 'package:test_pierrick_v2/pages/login.page.dart';
+
+// import 'package:test_pierrick_v2/services/authentication.dart';
+// import 'package:test_pierrick_v2/pages/root_page.dart';
 
 // import 'package:flutter_login/data/models/auth.dart';
 // import 'package:persist_theme/persist_theme.dart';
@@ -35,7 +37,8 @@ class MyApp extends StatelessWidget {
         // accentColor: Colors.cyan[600],
         // primaryColor: Colors.cyan[900],
       ),
-      home: new RootPage(auth: new Auth())
+       home: LoginPage(),
+      //home: new RootPage(auth: new Auth())
       //home: MyHomePage(title: 'Test Pierrick Home Page'),
     );
   }
